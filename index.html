@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Examples</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600" style="border:1px solid #000;"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Rectángulo
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(50, 50, 150, 100);
+
+        // Triángulo
+        ctx.beginPath();
+        ctx.moveTo(250, 50);
+        ctx.lineTo(200, 150);
+        ctx.lineTo(300, 150);
+        ctx.closePath();
+        ctx.fillStyle = 'red';
+        ctx.fill();
+
+        // Pluma (dibujo libre)
+        ctx.beginPath();
+        ctx.moveTo(450, 50);
+        ctx.lineTo(470, 80);
+        ctx.lineTo(430, 120);
+        ctx.lineTo(480, 150);
+        ctx.lineTo(450, 200);
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Línea
+        ctx.beginPath();
+        ctx.moveTo(50, 250);
+        ctx.lineTo(250, 250);
+        ctx.strokeStyle = 'purple';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Arco (círculo)
+        ctx.beginPath();
+        ctx.arc(400, 250, 50, 0, Math.PI * 2, false); // Círculo
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+
+        // Curva Bézier
+        ctx.beginPath();
+        ctx.moveTo(50, 350);
+        ctx.bezierCurveTo(150, 250, 250, 450, 350, 350);
+        ctx.strokeStyle = 'orange';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Curva Cuadrática
+        ctx.beginPath();
+        ctx.moveTo(400, 400);
+        ctx.quadraticCurveTo(500, 300, 600, 400);
+        ctx.strokeStyle = 'pink';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Combinación de líneas y figuras
+        ctx.beginPath();
+        ctx.moveTo(500, 100);
+        ctx.lineTo(550, 150);
+        ctx.arcTo(570, 100, 600, 150, 20);
+        ctx.closePath();
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    </script>
+</body>
+</html>
